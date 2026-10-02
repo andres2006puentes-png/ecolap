@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
+<html lang="es">
+<!-- Idioma del documento: español -->
+
+<head>
+    <!-- Cabecera con metadatos del documento -->
+
+    <meta charset="UTF-8">
+    <!-- Codificación UTF-8 para caracteres especiales del español -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace la página responsiva en dispositivos móviles -->
+
+    <meta name="description" content="ECOLAP - Plataforma integral para aprender, jugar y rastrear el reciclaje en tu ciudad.">
+    <!-- Descripción del sitio para SEO -->
+
+    <meta name="author" content="Equipo ECOLAP">
+    <meta name="keywords" content="ECOLAP, reciclaje, sostenibilidad, medio ambiente, economía circular">
+    <!-- Palabras clave para indexación en buscadores -->
+
+    <title>ECOLAP | Inicio - Transforma tu Huella Ambiental</title>
+    <!-- Título de la pestaña del navegador -->
+
+    <!-- Carga de Google Fonts Montserrat y Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icono de la pestaña del navegador (favicon) con el logo oficial ECOLAP -->
+    <link rel="icon" type="image/png" href="Img/LG_original.png">
+    <link rel="apple-touch-icon" href="Img/LG_original.png">
+
+    <!-- Enlace a la hoja de estilos externa styles.css -->
+    <link rel="stylesheet" href="styles.css?v=1787719118">
+
+    <!-- Estilos específicos del banner promocional de la App Móvil ECOLAP -->
+    <style>
+        /* ==========================================================
+           BANNER PROMOCIONAL APP MÓVIL ECOLAP
+           ----------------------------------------------------------
+           Banner flotante que aparece fijo en la parte inferior
+           de la pantalla invitando a descargar la app móvil.
+           ========================================================== */
+
+        /* Contenedor principal del banner: posición fija abajo */
+        .ecolap-app-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            /* Estado inicial: visible. translateY(0) lo posiciona dentro de la pantalla */
+            z-index: 9999;
+            background: linear-gradient(135deg, #0b1d16 0%, #1B4D3E 50%, #00A86B 100%);
+            color: var(--ecolap-blanco, #FFFFFF);
+            padding: 18px 60px 18px 24px;   /* Padding derecho extra para dejar sitio a la X */
+            border-radius: 18px;
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(0, 255, 135, 0.4),
+                0 0 60px rgba(0, 168, 107, 0.2);
+            border: 2px solid var(--ecolap-neon, #00FF87);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            max-width: 600px;
+            width: calc(100% - 40px);
+            /* Animación de entrada: aparece desde abajo con un rebote */
+            animation: ecolap-banner-slide-up 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s backwards;
+            /* backdrop-filter para efecto glassmorphic si hay contenido debajo */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Icono del teléfono con animación de rebote */
+        .ecolap-app-banner-icon {
+            font-size: 2.2rem;
+            flex-shrink: 0;
+            animation: ecolap-banner-bounce 2s ease-in-out infinite;
+        }
+
+        /* Contenedor del texto del banner */
+        .ecolap-app-banner-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ecolap-app-banner-text h4 {
+            color: var(--ecolap-blanco, #FFFFFF);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            margin: 0 0 4px 0;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .ecolap-app-banner-text p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.82rem;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .ecolap-app-banner-text p strong {
+            color: var(--ecolap-neon, #00FF87);
+            text-shadow: 0 0 8px rgba(0, 255, 135, 0.5);
+        }
+
+        /* Botón principal de descarga con efecto shine */
+        .ecolap-app-banner-btn {
+            background: var(--ecolap-neon, #00FF87);
+            color: #0b1d16;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(0, 255, 135, 0.5);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ecolap-app-banner-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 255, 135, 0.7), 0 0 20px rgba(0, 255, 135, 0.5);
+        }
+
+        .ecolap-app-banner-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Botón de cierre (X) en la esquina superior derecha */
+        .ecolap-app-banner-close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--ecolap-blanco, #FFFFFF);
+            font-size: 1.1rem;
+            line-height: 1;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .ecolap-app-banner-close:hover {
+            background: #ff4757;
+            border-color: #ff4757;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 0 12px rgba(255, 71, 87, 0.6);
+        }
+
+        /* Estado oculto del banner: fade-out + slide hacia abajo */
+        .ecolap-app-banner.hidden {
+            animation: ecolap-banner-fade-out 0.4s ease forwards;
+            /* forwards mantiene el estado final de la animación (oculto) */
+        }
+
+        /* Animación de entrada: aparece desde abajo con rebote */
+        @keyframes ecolap-banner-slide-up {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(120%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* Animación de salida: se desvanece y baja */
+        @keyframes ecolap-banner-fade-out {
+            from {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-50%) translateY(80px) scale(0.9);
+            }
+        }
+
+        /* Animación del icono del móvil (rebote sutil continuo) */
+        @keyframes ecolap-banner-bounce {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-6px) rotate(5deg); }
+        }
+
+        /* Ajustes responsive: en móvil el banner se vuelve más compacto */
+        @media (max-width: 600px) {
+            .ecolap-app-banner {
+                bottom: 12px;
+                padding: 14px 50px 14px 16px;
+                gap: 12px;
+                border-radius: 14px;
+            }
+            .ecolap-app-banner-icon { font-size: 1.7rem; }
+            .ecolap-app-banner-text h4 { font-size: 0.9rem; }
+            .ecolap-app-banner-text p { font-size: 0.75rem; }
+            .ecolap-app-banner-btn {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .ecolap-app-banner-btn span.btn-text { display: none; }
+        }
+
+        /* ==========================================================
+           BLOQUE DESTACADO "APRENDE Y RECICLA"
+           ========================================================== */
+        .ecolap-feature-block {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .ecolap-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .ecolap-feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--ecolap-gris-texto, #555);
+            font-size: 1rem;
+        }
+
+        .ecolap-feature-list li span {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .ecolap-feature-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Contenedor de la foto: da espacio a las insignias flotantes */
+        .ecolap-feature-photo-wrap {
+            position: relative;
+            max-width: 420px;
+            width: 100%;
+            margin: 40px 0;
+        }
+
+        /* Foto principal con bordes orgánicos (no un rectángulo perfecto) */
+        .ecolap-feature-photo {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+            border-radius: 30px 30px 30px 110px;
+            box-shadow: 0 30px 60px rgba(0, 77, 51, 0.25);
+            animation: ecolap-photo-float 5s ease-in-out infinite;
+        }
+
+        @keyframes ecolap-photo-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Insignias flotantes tipo tarjeta, sobre la foto */
+        .ecolap-feature-badge {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--ecolap-blanco, #FFFFFF);
+            padding: 12px 18px;
+            border-radius: 18px;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+            animation: ecolap-badge-float 4s ease-in-out infinite;
+        }
+
+        .ecolap-feature-badge span {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .ecolap-feature-badge strong {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: var(--ecolap-oscuro, #1B4D3E);
+            line-height: 1.2;
+        }
+
+        .ecolap-feature-badge small {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            color: var(--ecolap-gris-texto, #666);
+            white-space: nowrap;
+        }
+
+        .ecolap-feature-badge-top {
+            top: -22px;
+            left: -26px;
+            animation-delay: 0s;
+        }
+
+        .ecolap-feature-badge-bottom {
+            bottom: -22px;
+            right: -26px;
+            animation-delay: -2s;
+        }
+
+        @keyframes ecolap-badge-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @media (max-width: 900px) {
+            .ecolap-feature-block {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .ecolap-feature-text .ecolap-section-title,
+            .ecolap-feature-text .ecolap-section-subtitle {
+                text-align: center !important;
+            }
+            .ecolap-feature-list {
+                align-items: center;
+            }
+            .ecolap-feature-visual { order: -1; }
+            .ecolap-feature-photo-wrap {
+                max-width: 300px;
+                margin: 50px auto 60px;
+            }
+            .ecolap-feature-photo { height: 260px; }
+            .ecolap-feature-badge { padding: 9px 14px; }
+            .ecolap-feature-badge span { font-size: 1.3rem; }
+            .ecolap-feature-badge strong { font-size: 0.8rem; }
+            .ecolap-feature-badge small { font-size: 0.65rem; }
+            .ecolap-feature-badge-top { top: -18px; left: -12px; }
+            .ecolap-feature-badge-bottom { bottom: -18px; right: -12px; }
+        }
+
+        @media (max-width: 420px) {
+            .ecolap-feature-badge-top { top: -16px; left: 50%; transform: translateX(-90%); }
+            .ecolap-feature-badge-bottom { bottom: -16px; right: 50%; transform: translateX(90%); }
+        }
+
+        /* ==========================================================
+           CALCULADORA DE IMPACTO DE RECICLAJE
+           ========================================================== */
+        .ecolap-calc-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--ecolap-blanco, #FFFFFF);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+        }
+
+        .ecolap-calc-inputs {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            gap: 20px;
+            margin-bottom: 34px;
+        }
+
+        .ecolap-calc-field {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .ecolap-calc-field label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--ecolap-oscuro, #1B4D3E);
+        }
+
+        .ecolap-calc-field select,
+        .ecolap-calc-field input {
+            padding: 13px 16px;
+            border: 2px solid rgba(0, 168, 107, 0.2);
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: var(--ecolap-oscuro, #1B4D3E);
+            background: #fff;
+            outline: none;
+            transition: border-color 0.25s ease;
+        }
+
+        .ecolap-calc-field select:focus,
+        .ecolap-calc-field input:focus {
+            border-color: var(--ecolap-verde, #00A86B);
+        }
+
+        .ecolap-calc-results {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .ecolap-calc-result-card {
+            background: var(--ecolap-gradiente-suave, #f3f9f6);
+            border-radius: 16px;
+            padding: 22px 12px;
+            text-align: center;
+        }
+
+        .ecolap-calc-result-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .ecolap-calc-result-number {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--ecolap-oscuro, #1B4D3E);
+            margin-bottom: 4px;
+        }
+
+        .ecolap-calc-result-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: var(--ecolap-gris-texto, #666);
+        }
+
+        .ecolap-calc-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            color: var(--ecolap-gris-texto, #888);
+            text-align: center;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 700px) {
+            .ecolap-calc-box { padding: 28px 20px; }
+            .ecolap-calc-results { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Inicio del cuerpo del documento -->
+
+    <!-- ==========================================================
+    HEADER / BARRA DE NAVEGACIÓN ECOLAP
+    ========================================================== -->
+    <header class="ecolap-header">
+        <div class="container">
+            <nav class="ecolap-nav">
+                <a href="index.html" class="ecolap-logo">
+                    <div class="ecolap-logo-icon"><img src="Img/LG_original.png" alt="Logo ECOLAP" class="ecolap-logo-img"></div>
+                    <div class="ecolap-logo-text">ECO<span>LAP</span></div>
+                </a>
+                <!-- Menú principal: solo Inicio + Aprende y Recicla -->
+                <ul class="ecolap-menu" id="ecolapMenu">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="aprende.html">Aprende y Recicla</a></li>
+                </ul>
+                <button class="ecolap-burger" id="ecolapBurger" aria-label="Menú ECOLAP">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+         SECCIÓN HERO
+         ========================================================== -->
+    <section class="ecolap-hero" id="inicio">
+        <div class="container">
+            <div class="ecolap-hero-content">
+                <div class="ecolap-hero-text">
+                    <div class="ecolap-badge">
+                        <span class="ecolap-badge-dot"></span>
+                        Plataforma ECOLAP activa 2026
+                    </div>
+                    <h1>Bienvenido a <span>ECOLAP</span>: Transforma tu Huella Ambiental</h1>
+                    <p>La solución digital integral de ECOLAP para aprender, jugar y rastrear el reciclaje en tu ciudad.</p>
+                    <div class="ecolap-hero-buttons">
+                        <a href="aprende.html" class="ecolap-btn-primary">Explorar ECOLAP <span>→</span></a>
+                    </div>
+                </div>
+                <div class="ecolap-hero-stats">
+                    <div class="ecolap-stat-card">
+                        <div class="ecolap-stat-icon">♻️</div>
+                        <div class="ecolap-stat-number">+1.000</div>
+                        <div class="ecolap-stat-label">Toneladas gestionadas</div>
+                    </div>
+                    <div class="ecolap-stat-card">
+                        <div class="ecolap-stat-icon">🌍</div>
+                        <div class="ecolap-stat-number">+25K</div>
+                        <div class="ecolap-stat-label">Comunidad ECOLAP</div>
+                    </div>
+                    <div class="ecolap-stat-card">
+                        <div class="ecolap-stat-icon">📍</div>
+                        <div class="ecolap-stat-number">+150</div>
+                        <div class="ecolap-stat-label">Puntos de ruta</div>
+                    </div>
+                    <div class="ecolap-stat-card">
+                        <div class="ecolap-stat-icon">🌱</div>
+                        <div class="ecolap-stat-number">98%</div>
+                        <div class="ecolap-stat-label">Impacto positivo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN DESTACADA: APRENDE Y RECICLA
+         (Antes había 3 módulos; Juegos y Mapa ya no existen,
+         así que este bloque ahora presenta a fondo el módulo
+         Aprende y Recicla, que sí sigue activo)
+         ========================================================== -->
+    <section class="ecolap-section" id="modulos">
+        <div class="container">
+            <div class="ecolap-feature-block">
+                <div class="ecolap-feature-text">
+                    <span class="ecolap-section-tag">Módulo activo ECOLAP</span>
+                    <h2 class="ecolap-section-title" style="text-align: left;">Aprende a reciclar como todo un experto</h2>
+                    <p class="ecolap-section-subtitle" style="text-align: left; margin: 0 0 24px;">
+                        Guías oficiales, manuales prácticos y recursos verificados para que separes, reduzcas y reutilices correctamente desde tu casa, tu barrio o tu empresa.
+                    </p>
+                    <ul class="ecolap-feature-list">
+                        <li><span>🗂️</span> Guía de separación de residuos por colores</li>
+                        <li><span>🌻</span> Manual de compostaje urbano paso a paso</li>
+                        <li><span>♻️</span> Economía circular y normativa ambiental</li>
+                    </ul>
+                    <div class="ecolap-hero-buttons">
+                        <a href="aprende.html" class="ecolap-btn-primary">Ir a Aprende ECOLAP <span>→</span></a>
+                    </div>
+                </div>
+                <div class="ecolap-feature-visual">
+                    <div class="ecolap-feature-photo-wrap">
+                        <!-- Foto real relacionada con medio ambiente/reciclaje -->
+                        <img src="Img/PqArbol.jpeg" alt="Árbol en un parque, símbolo de cuidado ambiental" class="ecolap-feature-photo">
+
+                        <!-- Insignia flotante superior -->
+                        <div class="ecolap-feature-badge ecolap-feature-badge-top">
+                            <span>♻️</span>
+                            <div>
+                                <strong>100%</strong>
+                                <small>Reciclable</small>
+                            </div>
+                        </div>
+
+                        <!-- Insignia flotante inferior -->
+                        <div class="ecolap-feature-badge ecolap-feature-badge-bottom">
+                            <span>🌱</span>
+                            <div>
+                                <strong>Impacto</strong>
+                                <small>Ambiental real</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+         🧮 CALCULADORA DE IMPACTO DE RECICLAJE ECOLAP
+         Sección creativa e interactiva: el usuario elige un
+         material y una cantidad en kg, y la calculadora estima
+         cuánto CO₂, energía y agua se ahorran al reciclarlo,
+         además de un equivalente en árboles.
+         ========================================================== -->
+    <section class="ecolap-section ecolap-games" id="calculadora">
+        <div class="container">
+            <div class="ecolap-section-header">
+                <span class="ecolap-section-tag">Herramienta ECOLAP</span>
+                <h2 class="ecolap-section-title">Calculadora de Impacto de Reciclaje</h2>
+                <p class="ecolap-section-subtitle">Elige un material y la cantidad que reciclaste. Te mostramos el impacto ambiental estimado, al instante.</p>
+            </div>
+
+            <div class="ecolap-calc-box">
+                <!-- Controles de entrada -->
+                <div class="ecolap-calc-inputs">
+                    <div class="ecolap-calc-field">
+                        <label for="calcMaterial">Material reciclado</label>
+                        <select id="calcMaterial">
+                            <option value="aluminio">🥫 Aluminio (latas)</option>
+                            <option value="papel">📄 Papel y cartón</option>
+                            <option value="plastico">🧴 Plástico</option>
+                            <option value="vidrio">🍾 Vidrio</option>
+                        </select>
+                    </div>
+                    <div class="ecolap-calc-field">
+                        <label for="calcKg">Cantidad (kg)</label>
+                        <input type="number" id="calcKg" min="0" step="0.1" value="1">
+                    </div>
+                </div>
+
+                <!-- Resultados calculados -->
+                <div class="ecolap-calc-results">
+                    <div class="ecolap-calc-result-card">
+                        <div class="ecolap-calc-result-icon">🌫️</div>
+                        <div class="ecolap-calc-result-number" id="resCO2">0 kg</div>
+                        <div class="ecolap-calc-result-label">CO₂ evitado</div>
+                    </div>
+                    <div class="ecolap-calc-result-card">
+                        <div class="ecolap-calc-result-icon">⚡</div>
+                        <div class="ecolap-calc-result-number" id="resEnergy">0 kWh</div>
+                        <div class="ecolap-calc-result-label">Energía ahorrada</div>
+                    </div>
+                    <div class="ecolap-calc-result-card">
+                        <div class="ecolap-calc-result-icon">💧</div>
+                        <div class="ecolap-calc-result-number" id="resWater">0 L</div>
+                        <div class="ecolap-calc-result-label">Agua ahorrada</div>
+                    </div>
+                    <div class="ecolap-calc-result-card">
+                        <div class="ecolap-calc-result-icon">🌳</div>
+                        <div class="ecolap-calc-result-number" id="resTrees">0</div>
+                        <div class="ecolap-calc-result-label">Árboles equivalentes*</div>
+                    </div>
+                </div>
+
+                <p class="ecolap-calc-note">*Valores estimados con fines educativos, basados en promedios divulgados por estudios de reciclaje. El equivalente en árboles se calcula sobre el CO₂ absorbido por un árbol en un año.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+         FOOTER ECOLAP
+         ========================================================== -->
+    <footer class="ecolap-footer">
+        <div class="container">
+            <div class="ecolap-footer-content">
+                <div class="ecolap-footer-brand">
+                    <a href="index.html" class="ecolap-logo">
+                        <div class="ecolap-logo-icon"><img src="Img/LG_original.png" alt="Logo ECOLAP" class="ecolap-logo-img"></div>
+                        <div class="ecolap-logo-text">ECO<span>LAP</span></div>
+                    </a>
+                    <p>ECOLAP es la plataforma líder en gestión e incentivo del reciclaje.</p>
+                    <div class="ecolap-footer-social">
+                        <a href="#" class="ecolap-social-link" aria-label="Facebook ECOLAP">f</a>
+                        <a href="#" class="ecolap-social-link" aria-label="Twitter ECOLAP">𝕏</a>
+                        <a href="#" class="ecolap-social-link" aria-label="Instagram ECOLAP">📷</a>
+                        <a href="#" class="ecolap-social-link" aria-label="LinkedIn ECOLAP">in</a>
+                    </div>
+                </div>
+                <div class="ecolap-footer-col">
+                    <h4>ECOLAP</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="aprende.html">Aprende y Recicla</a></li>
+                    </ul>
+                </div>
+                <div class="ecolap-footer-col">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Guías ECOLAP</a></li>
+                        <li><a href="#">Manuales</a></li>
+                        <li><a href="#">Investigación</a></li>
+                        <li><a href="#">Blog Verde</a></li>
+                    </ul>
+                </div>
+                <div class="ecolap-footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:contacto@ecolap.com">contacto@ecolap.com</a></li>
+                        <li><a href="#">Soporte ECOLAP</a></li>
+                        <li><a href="#">Alianzas</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecolap-footer-bottom">
+                <p>© 2026 <span>ECOLAP</span>. Todos los derechos reservados.</p>
+                <p>Desarrollado con 💚 para la <span>propuesta oficial ECOLAP</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================
+         📱 BANNER PROMOCIONAL APP MÓVIL ECOLAP
+         ----------------------------------------------------------
+         Banner flotante (fixed) en la parte inferior de la
+         pantalla que invita a descargar la app móvil de ECOLAP
+         para iOS y Android. Incluye:
+         - Icono animado de teléfono
+         - Texto promocional con highlight neón
+         - Botón CTA "Descargar App 🚀"
+         - Botón X de cierre con animación
+         - JavaScript para ocultar el banner al cerrar
+         ========================================================== -->
+    <div class="ecolap-app-banner" id="ecolapAppBanner" role="alert" aria-live="polite">
+        <!-- Botón de cierre (X) - esquina superior derecha del banner -->
+        <button class="ecolap-app-banner-close" id="ecolapBannerClose" aria-label="Cerrar banner de la app ECOLAP">
+            ✕
+        </button>
+
+        <!-- Icono animado del móvil -->
+        <div class="ecolap-app-banner-icon">📱</div>
+
+        <!-- Texto promocional del banner -->
+        <div class="ecolap-app-banner-text">
+            <h4>¡Lleva a ECOLAP en tu bolsillo!</h4>
+            <p>Descarga nuestra App móvil para <strong> Android</strong></p>
+        </div>
+
+        <!-- Botón principal de descarga con efecto hover neón -->
+        <a href="ECOLAP.apk" download="ECOLAP.apk" class="ecolap-app-banner-btn">
+            <span class="btn-text">Descargar App</span> 🚀
+        </a>
+    </div>
+    <!-- Fin del banner promocional de la App ECOLAP -->
+
+    <!-- ==========================================================
+         SCRIPT JAVASCRIPT
+         Controla: menú móvil + cierre del banner promocional
+         ========================================================== -->
+    <script>
+        // ====== Menú móvil hamburguesa ======
+        const burger = document.getElementById('ecolapBurger');
+        const menu = document.getElementById('ecolapMenu');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.ecolap-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                menu.classList.remove('active');
+            });
+        });
+
+        // ====== Lógica del Banner Promocional ECOLAP ======
+        // Obtenemos las referencias a los elementos del DOM del banner
+        const banner = document.getElementById('ecolapAppBanner');
+        const closeBtn = document.getElementById('ecolapBannerClose');
+
+        // Evento click en el botón de cierre (X)
+        closeBtn.addEventListener('click', () => {
+            // 1. Añadimos la clase "hidden" al banner
+            //    Esta clase activa la animación CSS "ecolap-banner-fade-out"
+            //    que hace que el banner se desvanezca y baje suavemente
+            banner.classList.add('hidden');
+
+            // 2. Esperamos 400ms (la duración de la animación CSS)
+            //    y luego ocultamos completamente el banner con display:none
+            setTimeout(() => {
+                banner.style.display = 'none';
+            }, 400);
+        });
+        // ====== Calculadora de Impacto de Reciclaje ECOLAP ======
+        // Factores estimados de ahorro por kilogramo reciclado, según material.
+        // Valores aproximados con fines educativos/ilustrativos.
+        const ecolapFactores = {
+            aluminio: { co2: 9.0,  energia: 14, agua: 15 },
+            papel:    { co2: 1.4,  energia: 4,  agua: 30 },
+            plastico: { co2: 2.5,  energia: 6,  agua: 22 },
+            vidrio:   { co2: 0.3,  energia: 2.5, agua: 10 }
+        };
+
+        // Un árbol absorbe en promedio ~21 kg de CO2 al año.
+        // Usamos esa cifra para traducir el CO2 evitado a un
+        // equivalente en "árboles durante un año".
+        const CO2_POR_ARBOL_ANUAL = 21;
+
+        function ecolapCalcularImpacto() {
+            const material = document.getElementById('calcMaterial').value;
+            const kgInput = parseFloat(document.getElementById('calcKg').value);
+            const kg = isNaN(kgInput) || kgInput < 0 ? 0 : kgInput;
+
+            const factor = ecolapFactores[material];
+            const co2 = kg * factor.co2;
+            const energia = kg * factor.energia;
+            const agua = kg * factor.agua;
+            const arboles = co2 / CO2_POR_ARBOL_ANUAL;
+
+            document.getElementById('resCO2').textContent = `${co2.toFixed(1)} kg`;
+            document.getElementById('resEnergy').textContent = `${energia.toFixed(1)} kWh`;
+            document.getElementById('resWater').textContent = `${agua.toFixed(0)} L`;
+            document.getElementById('resTrees').textContent = arboles < 0.01 ? '0' : arboles.toFixed(2);
+        }
+
+        // Recalcula en vivo, automáticamente, mientras el usuario
+        // cambia el material o la cantidad (sin necesidad de botón).
+        const calcMaterial = document.getElementById('calcMaterial');
+        const calcKg = document.getElementById('calcKg');
+
+        if (calcMaterial && calcKg) {
+            calcMaterial.addEventListener('change', ecolapCalcularImpacto);
+            calcKg.addEventListener('input', ecolapCalcularImpacto);
+
+            // Cálculo inicial al cargar la página (con los valores por defecto)
+            ecolapCalcularImpacto();
+        }
+    </script>
+</body>
+
+</html>
