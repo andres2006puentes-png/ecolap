@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
+<html lang="es">
+<!-- Idioma principal del documento: español -->
+
+<head>
+    <!-- La cabecera contiene metadatos del documento (no se muestran visualmente) -->
+
+    <meta charset="UTF-8">
+    <!-- Codificación UTF-8 para mostrar correctamente tildes, ñ y caracteres especiales -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace la página responsiva en dispositivos móviles y controla el zoom inicial -->
+
+    <meta name="description" content="Módulo Aprende de ECOLAP: guías, manuales y recursos sobre separación de residuos, compostaje y economía circular.">
+    <!-- Descripción para SEO: aparece en resultados de Google -->
+
+    <meta name="author" content="Equipo ECOLAP">
+    <meta name="keywords" content="ECOLAP, aprender a reciclar, separación de residuos, compostaje, economía circular, medio ambiente">
+    <!-- Palabras clave para indexación en motores de búsqueda -->
+
+    <title>Aprende y Recicla | ECOLAP - Plataforma de Investigación</title>
+    <!-- Título de la pestaña del navegador -->
+
+    <!-- Icono de la pestaña del navegador (favicon) con el logo oficial ECOLAP -->
+    <link rel="icon" type="image/png" href="Img/LG_original.png">
+    <link rel="apple-touch-icon" href="Img/LG_original.png">
+
+    <!-- Carga de fuentes tipográficas Montserrat y Poppins desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Enlace a la hoja de estilos externa styles.css del proyecto ECOLAP -->
+    <link rel="stylesheet" href="styles.css?v=1787719118">
+</head>
+
+<body>
+    <!-- Cuerpo del documento: contiene todo el contenido visible -->
+
+    <!-- ==========================================================
+    HEADER / BARRA DE NAVEGACIÓN ECOLAP
+    ========================================================== -->
+    <header class="ecolap-header">
+        <div class="container">
+            <nav class="ecolap-nav">
+                <a href="index.html" class="ecolap-logo">
+                    <div class="ecolap-logo-icon"><img src="Img/LG_original.png" alt="Logo ECOLAP" class="ecolap-logo-img"></div>
+                    <div class="ecolap-logo-text">ECO<span>LAP</span></div>
+                </a>
+                <!-- Menú principal: solo Inicio + Aprende y Recicla -->
+                <ul class="ecolap-menu" id="ecolapMenu">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="aprende.html">Aprende y Recicla</a></li>
+                </ul>
+                <button class="ecolap-burger" id="ecolapBurger" aria-label="Menú ECOLAP">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Fin del header -->
+
+    <!-- ==========================================================
+         BANNER DE TÍTULO - PLATAFORMA DE INVESTIGACIÓN ECOLAP
+         Encabezado principal de la página Aprende
+         ========================================================== -->
+    <section class="ecolap-hero" id="inicio-aprende">
+        <!-- Reutilizamos la clase ecolap-hero para mantener el gradiente suave de fondo -->
+
+        <div class="container">
+            <div class="ecolap-hero-content" style="grid-template-columns: 1fr; text-align: center;">
+                <!-- Forzamos una sola columna y centrado para esta portada -->
+
+                <div class="ecolap-hero-text">
+                    <!-- Etiqueta superior que identifica la sección -->
+                    <div class="ecolap-badge">
+                        <span class="ecolap-badge-dot"></span>
+                        Módulo de Investigación ECOLAP
+                    </div>
+
+                    <!-- Titular principal H1 de la página -->
+                    <h1>Plataforma de Investigación <span>ECOLAP</span>: Guías y Tutoriales</h1>
+
+                    <!-- Subtítulo descriptivo del módulo Aprende -->
+                    <p style="max-width: 720px; margin: 0 auto 30px;">
+                        Accede a recursos pedagógicos verificados, guías oficiales y manuales prácticos de ECOLAP para convertirte en un agente de cambio ambiental certificado.
+                    </p>
+
+                    <!-- Botones de navegación rápida dentro de la página (anclas internas) -->
+                    <div class="ecolap-hero-buttons" style="justify-content: center;">
+                        <a href="#guias" class="ecolap-btn-primary">
+                            Ver Guías ECOLAP
+                            <span>→</span>
+                        </a>
+                        <a href="#recursos" class="ecolap-btn-secondary">
+                            Recursos Oficiales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin del banner de título -->
+
+    <!-- ==========================================================
+         SECCIÓN DE TARJETAS EDUCATIVAS - GUÍAS ECOLAP
+         Grid con las 3 guías principales del módulo Aprende
+         ========================================================== -->
+    <section class="ecolap-section" id="guias">
+        <div class="container">
+            <!-- Encabezado de la sección de guías -->
+            <div class="ecolap-section-header">
+                <span class="ecolap-section-tag">Investigación ECOLAP</span>
+                <h2 class="ecolap-section-title">Guías y Tutoriales ECOLAP</h2>
+                <p class="ecolap-section-subtitle">Tres pilares de conocimiento desarrollados por el equipo de investigación de ECOLAP para una formación ambiental completa.</p>
+            </div>
+
+            <!-- Grid responsivo con las 3 tarjetas de guías educativas -->
+            <div class="ecolap-cards-grid">
+
+                <!-- ===== TARJETA 1: GUÍA DE SEPARACIÓN DE RESIDUOS ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">🗂️</div>
+                    <!-- Icono representativo de clasificación -->
+
+                    <h3>Guía ECOLAP de Separación de Residuos</h3>
+                    <!-- Título de la guía -->
+
+                    <p>Aprende el método oficial ECOLAP para clasificar correctamente los residuos en la fuente: orgánicos, reciclables, peligrosos y no aprovechables. Incluye códigos de colores y ejemplos prácticos.</p>
+                    <!-- Descripción detallada del contenido de la guía -->
+
+                    <!-- Lista de temas que cubre la guía -->
+                    <ul style="margin-bottom: 22px; padding-left: 20px; list-style: disc; color: var(--ecolap-gris-texto); font-size: 0.9rem;">
+                        <li>Códigos de colores oficiales</li>
+                        <li>Identificación de materiales</li>
+                        <li>Errores comunes al reciclar</li>
+                        <li>Casos especiales y peligrosos</li>
+                    </ul>
+
+                    <!-- Enlace externo a recurso real sobre separación de residuos -->
+                    <a href="https://www.un.org/es/observances/environment-day" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Acceder a la Guía ONU
+                        <span>↗</span>
+                    </a>
+                    <!-- target="_blank" abre en nueva pestaña. rel="noopener noreferrer" mejora seguridad y rendimiento -->
+                </div>
+
+                <!-- ===== TARJETA 2: MANUAL DE COMPOSTAJE ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">🌻</div>
+
+                    <h3>Manual de Compostaje Urbano ECOLAP</h3>
+
+                    <p>Convierte tus residuos orgánicos en abono natural de alta calidad. El manual práctico de ECOLAP te enseña técnicas profesionales de compostaje doméstico, urbano y comunitario.</p>
+
+                    <ul style="margin-bottom: 22px; padding-left: 20px; list-style: disc; color: var(--ecolap-gris-texto); font-size: 0.9rem;">
+                        <li>Compostaje en casa y balcón</li>
+                        <li>Técnicas de vermicompostaje</li>
+                        <li>Manejo de olores y humedad</li>
+                        <li>Aplicaciones del compost</li>
+                    </ul>
+
+                    <!-- Enlace externo a guía de compostaje de la FAO -->
+                    <a href="https://www.fao.org/home/es" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Manual FAO Compostaje
+                        <span>↗</span>
+                    </a>
+                </div>
+
+                <!-- ===== TARJETA 3: ECONOMÍA CIRCULAR Y NORMATIVA ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">♻️</div>
+
+                    <h3>Economía Circular y Normativa Ambiental</h3>
+
+                    <p>Descubre el modelo de Economía Circular que ECOLAP promueve: producción responsable, consumo consciente y regeneración de recursos. Incluye marco legal y políticas públicas.</p>
+
+                    <ul style="margin-bottom: 22px; padding-left: 20px; list-style: disc; color: var(--ecolap-gris-texto); font-size: 0.9rem;">
+                        <li>Principios de la Economía Circular</li>
+                        <li>Legislación ambiental vigente</li>
+                        <li>Huella de carbono y agua</li>
+                        <li>Empresas y casos de éxito</li>
+                    </ul>
+
+                    <!-- Enlace externo a la Fundación Ellen MacArthur (referente mundial en economía circular) -->
+                    <a href="https://ellenmacarthurfoundation.org/es" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Recursos Economía Circular
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin de la sección de guías -->
+
+    <!-- ==========================================================
+         SECCIÓN DE RECURSOS RECOMENDADOS
+         Enlaces oficiales a entidades ambientales reconocidas
+         ========================================================== -->
+    <section class="ecolap-section ecolap-games" id="recursos">
+        <!-- Fondo con gradiente suave para diferenciar visualmente esta sección -->
+
+        <div class="container">
+            <div class="ecolap-section-header">
+                <span class="ecolap-section-tag">Fuentes oficiales ECOLAP</span>
+                <h2 class="ecolap-section-title">Recursos Recomendados por ECOLAP</h2>
+                <p class="ecolap-section-subtitle">Enlaces verificados a ministerios, organismos internacionales y entidades especializadas en medio ambiente y reciclaje.</p>
+            </div>
+
+            <!-- Grid con los enlaces a entidades oficiales -->
+            <div class="ecolap-cards-grid">
+
+                <!-- ===== RECURSO 1: MINISTERIO DE AMBIENTE ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">🏛️</div>
+                    <h3>Ministerio de Ambiente</h3>
+                    <p>Portal oficial con políticas públicas, normativas vigentes y campañas de educación ambiental en América Latina.</p>
+                    <a href="https://www.minambiente.gov.co/" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Visitar sitio oficial
+                        <span>↗</span>
+                    </a>
+                </div>
+
+                <!-- ===== RECURSO 2: PNUMA / ONU MEDIO AMBIENTE ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">🌐</div>
+                    <h3>ONU Medio Ambiente (PNUMA)</h3>
+                    <p>Programa de las Naciones Unidas para el Medio Ambiente. Informes globales, datos y soluciones frente a la crisis climática.</p>
+                    <a href="https://www.unep.org/es" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Ir a PNUMA
+                        <span>↗</span>
+                    </a>
+                </div>
+
+                <!-- ===== RECURSO 3: WWF ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">🐼</div>
+                    <h3>WWF - World Wildlife Fund</h3>
+                    <p>Organización internacional líder en conservación. Guías prácticas,reportes científicos y herramientas de impacto ambiental.</p>
+                    <a href="https://www.wwf.org.co/" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Visitar WWF
+                        <span>↗</span>
+                    </a>
+                </div>
+
+                <!-- ===== RECURSO 4: BASURA CERO ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">🌍</div>
+                    <h3>Zero Waste International Alliance</h3>
+                    <p>Alianza internacional que promueve el movimiento Basura Cero. Casos de estudio, certificaciones y estrategias comunitarias.</p>
+                    <a href="https://zwia.org/" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Ver Zero Waste
+                        <span>↗</span>
+                    </a>
+                </div>
+
+                <!-- ===== RECURSO 5: EPA - AGENCIA AMBIENTAL EE.UU. ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">🧪</div>
+                    <h3>EPA - Environmental Protection Agency</h3>
+                    <p>Agencia ambiental de Estados Unidos con base de datos completa sobre reciclaje, gestión de residuos y ciencia ambiental.</p>
+                    <a href="https://www.epa.gov/recycle" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Ir a EPA Recycle
+                        <span>↗</span>
+                    </a>
+                </div>
+
+                <!-- ===== RECURSO 6: BANCO MUNDIAL - CAMBIO CLIMÁTICO ===== -->
+                <div class="ecolap-card">
+                    <div class="ecolap-card-icon">📊</div>
+                    <h3>Banco Mundial - Cambio Climático</h3>
+                    <p>Informes, datos y financiamiento para proyectos de sostenibilidad y mitigación del cambio climático a nivel global.</p>
+                    <a href="https://www.bancomundial.org/es/topic/climatechange" target="_blank" rel="noopener noreferrer" class="ecolap-card-link">
+                        Ver informes
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin de la sección de recursos -->
+
+    <!-- ==========================================================
+         SECCIÓN DE DATOS CURIOSOS ECOLAP
+         Cierra la página con información interesante y motivadora
+         ========================================================== -->
+    <section class="ecolap-section" id="datos-ecolap">
+        <div class="container">
+            <div class="ecolap-section-header">
+                <span class="ecolap-section-tag">Sabías que...</span>
+                <h2 class="ecolap-section-title">Datos que ECOLAP quiere compartir</h2>
+                <p class="ecolap-section-subtitle">Información verificada que demuestra el impacto real del reciclaje en nuestro planeta.</p>
+            </div>
+
+            <!-- Grid con 4 datos curiosos sobre reciclaje -->
+            <div class="ecolap-hero-stats">
+                <!-- Reutilizamos los estilos de las tarjetas de estadísticas del hero -->
+
+                <div class="ecolap-stat-card">
+                    <div class="ecolap-stat-icon">⏱️</div>
+                    <div class="ecolap-stat-number">500 años</div>
+                    <div class="ecolap-stat-label">Tarda en degradarse una botella de plástico</div>
+                </div>
+
+                <div class="ecolap-stat-card">
+                    <div class="ecolap-stat-icon">💧</div>
+                    <div class="ecolap-stat-number">70%</div>
+                    <div class="ecolap-stat-label">Del agua potable se contamina por residuos</div>
+                </div>
+
+                <div class="ecolap-stat-card">
+                    <div class="ecolap-stat-icon">🌳</div>
+                    <div class="ecolap-stat-number">17 árboles</div>
+                    <div class="ecolap-stat-label">Se salvan por cada tonelada de papel reciclado</div>
+                </div>
+
+                <div class="ecolap-stat-card">
+                    <div class="ecolap-stat-icon">⚡</div>
+                    <div class="ecolap-stat-number">75%</div>
+                    <div class="ecolap-stat-label">De energía se ahorra reciclando aluminio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin de la sección de datos -->
+
+    <!-- ==========================================================
+         FOOTER / PIE DE PÁGINA ECOLAP
+         Idéntico al resto de páginas del proyecto
+         ========================================================== -->
+    <footer class="ecolap-footer">
+        <div class="container">
+            <div class="ecolap-footer-content">
+                <!-- Columna 1: marca y redes -->
+                <div class="ecolap-footer-brand">
+                    <a href="index.html" class="ecolap-logo">
+                        <div class="ecolap-logo-icon"><img src="Img/LG_original.png" alt="Logo ECOLAP" class="ecolap-logo-img"></div>
+                        <div class="ecolap-logo-text">ECO<span>LAP</span></div>
+                    </a>
+                    <p>ECOLAP es la plataforma líder en gestión e incentivo del reciclaje. Transformamos comunidades a través de la innovación verde y la tecnología sostenible.</p>
+                    <div class="ecolap-footer-social">
+                        <a href="#" class="ecolap-social-link" aria-label="Facebook ECOLAP">f</a>
+                        <a href="#" class="ecolap-social-link" aria-label="Twitter ECOLAP">𝕏</a>
+                        <a href="#" class="ecolap-social-link" aria-label="Instagram ECOLAP">📷</a>
+                        <a href="#" class="ecolap-social-link" aria-label="LinkedIn ECOLAP">in</a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: navegación -->
+                <div class="ecolap-footer-col">
+                    <h4>ECOLAP</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="aprende.html">Aprende y Recicla</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: recursos -->
+                <div class="ecolap-footer-col">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#guias">Guías ECOLAP</a></li>
+                        <li><a href="#recursos">Manuales</a></li>
+                        <li><a href="#datos-ecolap">Investigación</a></li>
+                        <li><a href="#">Blog Verde</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: contacto -->
+                <div class="ecolap-footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:contacto@ecolap.com">contacto@ecolap.com</a></li>
+                        <li><a href="#">Soporte ECOLAP</a></li>
+                        <li><a href="#">Alianzas</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ecolap-footer-bottom">
+                <p>© 2026 <span>ECOLAP</span>. Todos los derechos reservados. Plataforma oficial de gestión ambiental.</p>
+                <p>Desarrollado con 💚 para la <span>propuesta oficial ECOLAP</span></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Fin del footer -->
+
+    <!-- ==========================================================
+         SCRIPT JAVASCRIPT
+         Controla la apertura/cierre del menú móvil hamburguesa
+         ========================================================== -->
+    <script>
+        // Referencias a los elementos del DOM
+        const burger = document.getElementById('ecolapBurger');
+        const menu = document.getElementById('ecolapMenu');
+
+        // Toggle del menú al hacer click en el botón hamburguesa
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+
+        // Cierra el menú al hacer click en cualquier enlace
+        document.querySelectorAll('.ecolap-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                menu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

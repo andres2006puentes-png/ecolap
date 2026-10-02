@@ -1,0 +1,6 @@
+{
+  "appId": "com.ecolap.app",
+  "appName": "ECOLAP",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
